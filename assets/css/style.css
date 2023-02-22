@@ -25,6 +25,9 @@ textarea {
   white-space: pre-wrap;
 }
 
+#time {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 .time-block {
   text-align: center;
   border-radius: 15px;
