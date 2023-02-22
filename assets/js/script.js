@@ -10,9 +10,18 @@ $("#currentDay").html(moment().toString());
 //     $(".container").append('<div class="row time-block"><div class="col-2 hour">AM</div><textarea class="col-8 past"></textarea><button class="col-2 saveBtn"></button></div>');
 // };
 
-$(".container").append('<div class="row time-block"><div class="col-2 hour">8AM</div><textarea class="col-8 past"></textarea><button class="col-2 saveBtn"></button></div>');
-$(".container").append('<div class="row time-block"><div class="col-2 hour">1PM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
-$(".container").append('<div class="row time-block"><div class="col-2 hour">4PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">9AM</div><textarea class="col-8 past"></textarea> <button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">10AM</div><textarea class="col-8 past"></textarea><button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">11AM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
+
+$(".container").append('<div class="row time-block"><div class="col-2 hour">12PM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">1PM</div><textarea class="col-8 present"></textarea><button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">2PM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
+
+$(".container").append('<div class="row time-block"><div class="col-2 hour">3PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">4PM</div><textarea class="col-8 future"></textarea><button class="col-2 saveBtn"></button></div>');
+$(".container").append('<div class="row time-block"><div class="col-2 hour">5PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
+
 
 
 // if time is before 'now' colour text area gray
