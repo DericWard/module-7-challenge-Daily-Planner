@@ -1,28 +1,44 @@
 // MUST use Jquery and Moment.js
 
-let now = moment().format('H');
-// display current date
-$("#currentDay").html(moment().format('dddd LL').toString());
-
-setInterval(() => {
-    $("#time").html(moment().format('HH:mm:ss'));
-}, 1000); 
-
-// generate time-blocks and colour the time-block textarea sections to reflect past/present/future time
-for(let i = '09'; i < 18; i++ ) {
-    $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8"></textarea><button class="col-2 saveBtn"></button></div>`);
-    if ((i - now) < 0) {
-        $("textarea").addClass("future");
-    }
-    if ((i - now) === 0) {
-        $("textarea").addClass("present");
-    }
-    else $("textarea").addClass("past");
+function saveUserInput() {
+    console.log("in saveUserInput");
 };
 
-setImmediate();
+function listenForUserInput() {
+    saveUserInput();
+};
 
+function getFromLocalStorage() {
+    listenForUserInput();
+};
 
+// generate time-blocks and colour the time-block textarea sections to reflect past/present/future time
+function generateTimeBlocks() { 
+    let now = moment().format('H');
+    for(let i = '09'; i < 18; i++ ) {
+        $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8"></textarea><button class="col-2 saveBtn"></button></div>`);
+        if ((i - now) < 0) {
+            $("textarea").addClass("future");
+        }
+        if ((i - now) === 0) {
+            $("textarea").addClass("present");
+        }
+        else $("textarea").addClass("past");
+    };
+    getFromLocalStorage();
+    // listenForUserInput();
+};
+
+// display today's date and a real-time clock
+function displayDateAndClock() {
+    $("#currentDay").html(moment().format('dddd LL').toString());
+    setInterval(function() {
+        $("#time").html(moment().format('HH:mm:ss'));
+    }, 1000); 
+    generateTimeBlocks();
+};
+
+displayDateAndClock();
 
 
 
