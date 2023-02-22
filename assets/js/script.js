@@ -4,12 +4,22 @@
 // $("#currentDay").html(todaysDate);
 // document.getElementById("currentDay").innerHTML = todaysDate;
 
+let now = moment().format('H');
 
 $("#currentDay").html(moment().format('LLLL').toString());
 
-for(let i = 09; i < 18; i++ ) {
-    $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8 future"></textarea><button class="col-2 saveBtn"></button></div>`);
+for(let i = '09'; i < 18; i++ ) {
+    $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8"></textarea><button class="col-2 saveBtn"></button></div>`);
+console.log(i - now);
+    if ((i - now) < 0) {
+        $("textarea").addClass("future");
+    }
+    if ((i - now) === 0) {
+        $("textarea").addClass("present");
+    }
+    else $("textarea").addClass("past");
 };
+
 
 
 
@@ -39,6 +49,15 @@ for(let i = 09; i < 18; i++ ) {
 // $(".container").append('<div class="row time-block"><div class="col-2 hour">3PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
 // $(".container").append('<div class="row time-block"><div class="col-2 hour">4PM</div><textarea class="col-8 future"></textarea><button class="col-2 saveBtn"></button></div>');
 // $(".container").append('<div class="row time-block"><div class="col-2 hour">5PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
+
+// if ((i - now) < 0) {
+//     $("textarea").addClass("future");
+// }
+// if ((i - now) === 0) {
+//     $("textarea").addClass("present");
+// }
+// else $("textarea").addClass("past");
+
 
 
 // <!-- <div class="row time-block">
