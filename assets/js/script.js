@@ -8,8 +8,12 @@ function listenForUserInput() {
     saveUserInput();
 };
 
-function getFromLocalStorage() {
+function displayTimeBlockText() {
     listenForUserInput();
+}
+
+function getFromLocalStorage() {
+    displayTimeBlockText();
 };
 
 // generate time-blocks and colour the time-block textarea sections to reflect past/present/future time
@@ -26,12 +30,12 @@ function generateTimeBlocks() {
         else $("textarea").addClass("past");
     };
     getFromLocalStorage();
-    // listenForUserInput();
 };
 
 // display today's date and a real-time clock
 function displayDateAndClock() {
     $("#currentDay").html(moment().format('dddd LL').toString());
+    $("#currentDay").append(`<div id="time"></div>`);
     setInterval(function() {
         $("#time").html(moment().format('HH:mm:ss'));
     }, 1000); 
