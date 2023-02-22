@@ -20,7 +20,7 @@ function getFromLocalStorage() {
 function generateTimeBlocks() { 
     let now = moment().format('H');
     for(let i = '09'; i < 18; i++ ) {
-        $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8"></textarea><button class="col-2 saveBtn"></button></div>`);
+        $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8 ${i}"></textarea><button class="col-2 ${i} saveBtn"></button></div>`);
         if ((i - now) < 0) {
             $("textarea").addClass("future");
         }
