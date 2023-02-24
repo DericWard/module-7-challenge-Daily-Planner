@@ -1,7 +1,8 @@
 // MUST use JQUERY and MOMENT.JS
 
 function getPlannerEntries(plannerEntries) {
-    plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")); 
+    plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")) || [];
+    // plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")); 
     plannerEntries.forEach(function(timeBlockEntry) {
         console.log("timeblock:" + timeBlockEntry.timeSlot + " : " + "text: " + timeBlockEntry.text);
         $(`.${timeBlockEntry.timeSlot}`).append(` ${timeBlockEntry.text}`)
