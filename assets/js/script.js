@@ -1,17 +1,9 @@
 // MUST use Jquery and Moment.js
 
 function saveUserInput() {
-    console.log("in saveUserInput");
 };
-
-function listenForUserInput() {
-    saveUserInput();
-};
-
 function displayTimeBlockText() {
-    listenForUserInput();
-}
-
+};
 function getFromLocalStorage() {
     displayTimeBlockText();
 };
@@ -20,7 +12,7 @@ function getFromLocalStorage() {
 function generateTimeBlocks() { 
     let now = moment().format('H');
     for(let i = '09'; i < 18; i++ ) {
-        $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8 ${i}"></textarea><button class="col-2 ${i} saveBtn"></button></div>`);
+        $(".container").append(`<div class="row time-block"><div class="col-2 hour">${i}:00</div><textarea class="col-8" id="${i}"></textarea><button class="col-2 saveBtn" id="btnID-${i}"></button></div>`);
         if ((i - now) < 0) {
             $("textarea").addClass("future");
         }
@@ -44,35 +36,38 @@ function displayDateAndClock() {
 
 displayDateAndClock();
 
+// let timeBlockContainer = $(".container");
 
 
+$(".saveBtn").on("click", function() {
 
+    $("button").each(function(index, element){ 
+        console.log("button index: " + index + "    button ID: " + $(element).attr("id"));
+    });
 
+    $("textarea").each(function(index, element) {
+        console.log("textarea index: " + index +    ". ID: " + $(element).attr("id") +  ". text: " + $(element).val());
+    });
 
-// add a save to disk icon to the buttons
-// maybe select a nicer looking font style and size for the text input
+    // let plannerText = $("textarea").val();
+    // let plannerTextID = $("textarea").attr("id");
+    // let btnID = $(".saveBtn").attr("id");
 
+    // console.log(`btnID: ${btnID}`);
+    // console.log(`planner text: ${plannerText}`);
+    // console.log(`plannerTextID: ${plannerTextID}`);
+
+    // saveUserInput();
+});
+
+// add index and $(element).val() to an array
 // save the text input to local storage
+// add a save to disk icon to the buttons
+// get index and $(element).val() array from local storage
+// display array from local storage
+// if the next day, delete the array and start again
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// if time is before 'now' colour textarea gray (PAST)
-// if time is current colour text area orange (PRESENT)
-// if time is future colour text area green (FUTURE)
-// do this by changing the class name of the textarea
 
 
 // let todaysDate = moment().toString();
@@ -80,30 +75,8 @@ displayDateAndClock();
 // document.getElementById("currentDay").innerHTML = todaysDate;
 
 
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">9AM</div><textarea class="col-8 past"></textarea> <button class="col-2 saveBtn"></button></div>');
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">10AM</div><textarea class="col-8 past"></textarea><button class="col-2 saveBtn"></button></div>');
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">11AM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
-
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">12PM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">1PM</div><textarea class="col-8 present"></textarea><button class="col-2 saveBtn"></button></div>');
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">2PM</div><textarea class="col-8 present"></textarea> <button class="col-2 saveBtn"></button></div>');
-
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">3PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">4PM</div><textarea class="col-8 future"></textarea><button class="col-2 saveBtn"></button></div>');
-// $(".container").append('<div class="row time-block"><div class="col-2 hour">5PM</div><textarea class="col-8 future"></textarea> <button class="col-2 saveBtn"></button></div>');
-
-// if ((i - now) < 0) {
-//     $("textarea").addClass("future");
-// }
-// if ((i - now) === 0) {
-//     $("textarea").addClass("present");
-// }
-// else $("textarea").addClass("past");
-
-
-
 // <!-- <div class="row time-block">
 // <div class="col-2 hour">8AM</div>
-// <textarea class="col-8 present"></textarea>
+// <textarea class="col-8 past present future"></textarea>
 // <button class="col-2 saveBtn"></button>
 // </div> -->
