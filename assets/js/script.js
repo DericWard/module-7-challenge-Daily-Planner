@@ -1,24 +1,69 @@
 // MUST use JQUERY and MOMENT.JS
 
+let plannerEntries = [];
+plannerEntries.length = 9;
+
 function getPlannerEntries(plannerEntries) {
     plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")) || [];
     // plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")); 
     plannerEntries.forEach(function(timeBlockEntry) {
-        console.log("timeblock:" + timeBlockEntry.timeSlot + " : " + "text: " + timeBlockEntry.text);
+        // console.log("timeblock:" + timeBlockEntry.timeSlot + " : " + "text: " + timeBlockEntry.text);
         $(`.${timeBlockEntry.timeSlot}`).append(` ${timeBlockEntry.text}`)
     });
+    // localStorage.clear(plannerEntries);
 };
 
 // save the new planner entry to a storage array, create if doesn't exit. Create object and push values to array, send to local storage
 function savePlannerEntry(btnID, textEntry) {
-        let plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")) || [];
-        let newPlannerEntry = {
-            timeSlot: btnID,
-            text: textEntry
+    // let plannerEntries = []
+    // plannerEntries.length = 9; 
+    plannerEntries = JSON.parse(localStorage.getItem("plannerEntries")) || [];
+console.log(plannerEntries);
+    let matchEntry = plannerEntries.find(function(entry) {
+        // console.log(matchEntry);
+       let matchedEntry = ((entry.timeSlot == btnID) && (entry.text == textEntry));
+       console.log("matched entry: " + matchedEntry);
+    });
+        console.log("match entry: " + matchEntry);
+
+       
+    // );
+
+    let newPlannerEntry = {
+        timeSlot: btnID,
+        text: textEntry
         };
-    plannerEntries.push(newPlannerEntry);
+
+    // check if plannerEntries includes (btnID && btnID:textEntry)", if so return
+
+
+
+// console.log("id: " + btnID + " entry: " + textEntry);
+// console.log(newPlannerEntry.timeSlot);
+// console.log(newPlannerEntry.text);
+
+console.log("time : " + newPlannerEntry.timeSlot + " text: " + newPlannerEntry.text);
+
+
+// if array textentry at btnID == textentry then return
+// else update array
+// maybe use includes  
+
+// or - if the value at the id == then return
+
+
+    // let checkArray = plannerEntries.find(function(entry) {
+    //     entry.timeSlot == btnID;
+    // });
+
+    // if (checkArray) {
+    //     checkArray.text = textEntry;
+    // } else {
+        plannerEntries.push(newPlannerEntry);
+    // };
+// console.log(plannerEntries);
     localStorage.setItem("plannerEntries", JSON.stringify(plannerEntries));
-    getPlannerEntries(plannerEntries);
+    // getPlannerEntries(plannerEntries);
 };
 
 // generate time-blocks and colour the time-block textarea sections to reflect past/present/future time
