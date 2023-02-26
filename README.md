@@ -1,7 +1,7 @@
 ## module-7-challenge-Daily-Planner-app
 ### Description:
 #### A JS/JQuery daily planner app that allows the user to add/edit/delete entries manually on a per-hour basis for a typical 9-5 working day.
-#### This app uses MOMENT.JS to display a real-time clock on the main app screen.
+#### This app uses MOMENT.JS to display today's day and date as well as a real-time clock on the main app screen.
 #### A 'Save' button is available on each hourly slot for the user to save the data they have typed to Local Storage.
 #### The 'Save' button's text changes to 'Saving...' for approximately 1500mS once clicked. 
 #### Saved data persists in local storage even after the user leaves the page, or reboots their device.
