@@ -9,6 +9,8 @@ function displayFromLocalStorage() {    // get from LS, if not empty write conte
                 $('textarea').eq(i).val("");
             }
             else {
+                // let textAreaDisplay = $('textarea').eq(i);
+                // textAreaDisplay.val(`${plannerEntries[i]}`);
                 $('textarea').eq(i).val(`${plannerEntries[i]}`);
             };
         };
@@ -49,11 +51,5 @@ displayDateAndClock();  // call the clock and get the process of drawing the pag
 $("button").click(function() {  // listen for any buttons to be clicked, obtain the ID and the text from the textarea referenced by the button ID
     let btnID = $(this).attr("id");
     let textEntry = $(`#text${btnID}`).val();
-
     savePlannerEntry(btnID, textEntry);
-
-    $(this).text("Saving..."); // change the text on the clicked button to 'Saving...""
-    setTimeout(function() {
-        $(this).text("Save");
-    }.bind(this), 1500);    // after approx 1500mS, change the button text back to 'Save'
 });
