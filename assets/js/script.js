@@ -53,7 +53,12 @@ $("button").click(function() {  // listen for any buttons to be clicked, obtain 
     savePlannerEntry(btnID, textEntry);
 
     $(this).text("Saving..."); // change the text on the clicked button to 'Saving...""
+    
     setTimeout(function() {
         $(this).text("Save");
     }.bind(this), 1500);    // after approx 1500mS, change the button text back to 'Save'
 });
+
+
+
+
